@@ -12,7 +12,11 @@ class Customer:
         self.street = street
         self.city = city
         self.zipcode = zipcode
+    
+    def __repr__(self):
+        """Show customer name."""
 
+        return f"<{self.name}>"
 
 def get_customers_from_file(customer_file_path):
     """Read customer file and return list of customer objects.
@@ -35,7 +39,7 @@ def get_customers_from_file(customer_file_path):
 
         new_customer = Customer(name, email, street, city, zipcode)
         customers.append(new_customer)
-
+        
     return customers
 
 
@@ -56,4 +60,5 @@ def run_raffle():
     customers = get_customers_from_file("customers.txt")
     pick_winner(customers)
 
-run_raffle()
+if __name__ == "__main__":
+    run_raffle()
